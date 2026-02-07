@@ -1,0 +1,19 @@
+^0# Fichiers générés
+newsletter_*.html
+newsletter_*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnement
+.env
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

@@ -1,0 +1,8 @@
+newsletter_*.html
+newsletter_*.json
+__pycache__/
+*.py[cod]
+.env
+venv/
+.vscode/
+.DS_Store

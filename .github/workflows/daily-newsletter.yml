@@ -1,0 +1,56 @@
+name: 📰 Newsletter Quotidienne
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-and-send:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: 📦 Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: 🤖 Install Ollama
+      run: |
+        curl -fsSL https://ollama.com/install.sh | sh
+        ollama serve &
+        sleep 10
+    
+    - name: 📥 Pull Phi-3
+      run: |
+        ollama pull phi3
+    
+    - name: 🚀 Generate newsletter
+      run: |
+        python newsletter_pipeline.py
+    
+    - name: 📧 Send newsletter
+      env:
+        GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+        GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        DESTINATAIRES: ${{ secrets.DESTINATAIRES }}
+      run: |
+        LATEST_HTML=$(ls -t newsletter_*.html 2>/dev/null | head -1)
+        if [ -n "$LATEST_HTML" ]; then
+          python send_newsletter.py "$LATEST_HTML"
+        fi
+    
+    - name: 💾 Archive
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: newsletter-${{ github.run_number }}
+        path: newsletter_*.*
+        retention-days: 30
