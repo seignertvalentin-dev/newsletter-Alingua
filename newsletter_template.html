@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter - Deutsch lernen</title>
+    <style>
+        /* Reset et base */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        /* Container principal */
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: #2d3436;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .header .tagline {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+        
+        /* Contenu */
+        .content {
+            padding: 30px 25px;
+        }
+        
+        /* Titre de l'article */
+        .article-title {
+            color: #ff6b35;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            line-height: 1.4;
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            background-color: #f8f9fa;
+            color: #495057;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        /* Article simplifié */
+        .article-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        /* Vocabulaire */
+        .vocab-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .vocab-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: #fff8f0;
+            border-radius: 6px;
+            border-left: 3px solid #ff9f43;
+        }
+        
+        .vocab-word {
+            font-weight: 600;
+            color: #ff6b35;
+            font-size: 16px;
+        }
+        
+        .vocab-translation {
+            color: #6c757d;
+            font-size: 15px;
+        }
+        
+        .vocab-example {
+            color: #495057;
+            font-size: 14px;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        /* Point de langue */
+        .grammar-box {
+            background-color: #fff4e6;
+            border-left: 4px solid #ff9f43;
+            padding: 15px;
+            border-radius: 6px;
+            color: #8b5a00;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Résumé français */
+        .summary-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            border-radius: 6px;
+            color: #2e7d32;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 25px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-text {
+            color: #6c757d;
+            font-size: 13px;
+            margin: 5px 0;
+        }
+        
+        .footer-link {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Badge niveau */
+        .level-badge {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .article-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📰 Deine tägliche Deutsch-Newsletter</h1>
+            <p class="tagline">Lerne Deutsch mit aktuellen Nachrichten</p>
+        </div>
+        
+        <!-- Contenu principal -->
+        <div class="content">
+            <!-- Titre de l'article -->
+            <h2 class="article-title">
+                {{TITRE_ARTICLE}}
+                <span class="level-badge">Niveau A2</span>
+            </h2>
+            
+            <!-- Article simplifié -->
+            <div class="section">
+                <div class="section-title">📝 Article simplifié</div>
+                <p class="article-text">{{ARTICLE_SIMPLIFIE}}</p>
+            </div>
+            
+            <!-- Vocabulaire -->
+            <div class="section">
+                <div class="section-title">📚 Vocabulaire utile</div>
+                <ul class="vocab-list">
+                    {{VOCABULAIRE_ITEMS}}
+                </ul>
+            </div>
+            
+            <!-- Point de langue -->
+            <div class="section">
+                <div class="section-title">📖 Point de langue</div>
+                <div class="grammar-box">
+                    {{POINT_LANGUE}}
+                </div>
+            </div>
+            
+            <!-- Résumé français -->
+            <div class="section">
+                <div class="section-title">🇫🇷 Résumé en français</div>
+                <div class="summary-box">
+                    {{RESUME_FRANCAIS}}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                Newsletter quotidienne · {{DATE}}
+            </p>
+            <p class="footer-text">
+                <a href="{{LIEN_ARTICLE}}" class="footer-link">📄 Lire l'article original</a>
+            </p>
+            <p class="footer-text">
+                <a href="#" class="footer-link">Se désabonner</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
